@@ -24,6 +24,6 @@ module tt_um_lif (
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
 
-  lif lif1 (.current(ui_in), .clk(clk), .reset_n(rst_n), .state(uo_out), .spike(uio_out[7]))
+  lif lif1 (.current(ui_in), .clk(clk), .reset_n(rst_n), .state(uo_out), .spike(uio_out[7]));
 
 endmodule
