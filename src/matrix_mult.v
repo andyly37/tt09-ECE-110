@@ -9,11 +9,11 @@ module matrix_mult (
 );
     always @(posedge clk) begin
         if (!reset_n) begin
-            mat_out <= 16'b0000000000000000;
+            mat_out <= 10'b0000000000;
         end else begin
             if ( (mat1[1:0] > 2'b11) | (mat1[3:2] > 2'b11) | (mat1[5:4] > 2'b11) | 
             (mat1[7:6] > 2'b11) | (mat2[1:0] > 2'b11) | (mat2[3:2] > 2'b11) ) begin
-                mat_out <= 16'b0000000000000000;
+                mat_out <= 10'b0000000000;
             end else begin
                 mat_out[4:0] <= (mat1[1:0] * mat2[1:0]) + (mat1[3:2] * mat2[3:2]);
                 mat_out[9:5] <= (mat1[5:4] * mat2[1:0]) + (mat1[7:6] * mat2[3:2]);
