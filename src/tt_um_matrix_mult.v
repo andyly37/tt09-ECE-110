@@ -16,14 +16,14 @@ module tt_um_matrix_mult (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uio_oe [0:1] = 2b'11;
-  assign uio_oe [2:7] = 6b'000000;
+    // All output pins must be assigned. If not used, assign to 0.
+    assign uio_oe [1:0] = 2b'11;
+    assign uio_oe [7:2] = 6b'000000;
   
 
-  // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
+    // List all unused inputs to prevent warnings
+    wire _unused = &{ena, clk, rst_n, 1'b0};
 
-  matrix_mult mat_mult1 (.mat1(ui_in), .mat2(uio_in[4:7]), .clk(clk), .reset_n(rst_n), .mat_out({uo_out, uio_out[0:1]}));
+    matrix_mult mat_mult1 (.mat1(ui_in), .mat2(uio_in[7:4]), .clk(clk), .reset_n(rst_n), .mat_out({uo_out, uio_out[1:0]}));
 
 endmodule
