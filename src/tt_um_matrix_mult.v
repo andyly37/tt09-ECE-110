@@ -19,6 +19,7 @@ module tt_um_matrix_mult (
     // All output pins must be assigned. If not used, assign to 0.
     assign uio_oe[1:0] = 2'b11;
     assign uio_oe[7:2] = 6'b000000;
+    assign uio_out[7:2] = 6'b000000;
   
 
     // List all unused inputs to prevent warnings
