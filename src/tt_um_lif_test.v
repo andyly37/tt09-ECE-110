@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_lif_test (
+module tt_um_matrix_mult (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
@@ -17,12 +17,13 @@ module tt_um_lif_test (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uio_out [6:0] = 0;
-  assign uio_oe  = 1;
+  assign uio_oe [0:1] = 2b'11;
+  assign uio_oe [2:7] = 6b'000000;
+  
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
 
-  lif lif1 (.current(ui_in), .clk(clk), .reset_n(rst_n), .state(uo_out), .spike(uio_out[7]));
+  matrix_mult mat_mult1 (.mat1(ui_in), .mat2(uio_in[4:7]), .clk(clk), .reset_n(rst_n), .mat_out({uo_out, uio_out[0:1]}));
 
 endmodule
