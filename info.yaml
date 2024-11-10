@@ -19,7 +19,7 @@ project:
   source_files:
     - "tt_um_matrix_mult.v"
     - "lif.v"
-    - "matirx_mult.v"
+    - "matrix_mult.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
